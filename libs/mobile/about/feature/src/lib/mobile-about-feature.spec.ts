@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { IonicModule } from '@ionic/angular'
 
-import { HomePage } from './home.page'
+import { MobileAboutFeatureComponent } from './mobile-about-feature.component'
 
-describe('HomePage', () => {
-  let component: HomePage
-  let fixture: ComponentFixture<HomePage>
+describe('MobileAboutFeatureComponent', () => {
+  let component: MobileAboutFeatureComponent
+  let fixture: ComponentFixture<MobileAboutFeatureComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePage],
+      declarations: [MobileAboutFeatureComponent],
       imports: [IonicModule.forRoot()],
     }).compileComponents()
 
-    fixture = TestBed.createComponent(HomePage)
+    fixture = TestBed.createComponent(MobileAboutFeatureComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   }))

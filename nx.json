@@ -59,6 +59,55 @@
     "api-user-feature": {
       "tags": ["scope:api", "type:feature"]
     },
+    "mobile": {
+      "tags": []
+    },
+    "mobile-about-feature": {
+      "tags": ["scope:mobile", "type:feature"]
+    },
+    "mobile-account-feature": {
+      "tags": ["scope:mobile", "type:feature"]
+    },
+    "mobile-account-ui": {
+      "tags": ["scope:mobile", "type:ui"]
+    },
+    "mobile-auth-data-access": {
+      "tags": ["scope:mobile", "type:data-access"]
+    },
+    "mobile-auth-feature": {
+      "tags": ["scope:mobile", "type:feature"]
+    },
+    "mobile-auth-ui": {
+      "tags": ["scope:mobile", "type:ui"]
+    },
+    "mobile-core-data-access": {
+      "tags": ["scope:mobile", "type:data-access"]
+    },
+    "mobile-core-feature": {
+      "tags": ["scope:mobile", "type:feature"]
+    },
+    "mobile-dashboard-feature": {
+      "tags": ["scope:mobile", "type:feature"]
+    },
+    "mobile-e2e": {
+      "tags": [],
+      "implicitDependencies": ["mobile"]
+    },
+    "mobile-layout-feature": {
+      "tags": ["scope:mobile", "type:feature"]
+    },
+    "mobile-shell-feature": {
+      "tags": ["scope:mobile", "type:feature"]
+    },
+    "mobile-ui-button": {
+      "tags": ["scope:mobile", "type:ui"]
+    },
+    "mobile-ui-form": {
+      "tags": ["scope:mobile", "type:ui"]
+    },
+    "mobile-ui-page": {
+      "tags": ["scope:mobile", "type:ui"]
+    },
     "shared-util-sdk": {
       "tags": ["scope:shared", "type:util"]
     },

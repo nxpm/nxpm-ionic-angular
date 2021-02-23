@@ -285,6 +285,534 @@
         }
       }
     },
+    "mobile": {
+      "projectType": "application",
+      "root": "apps/mobile",
+      "sourceRoot": "apps/mobile/src",
+      "prefix": "nxpm-mobile",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/mobile",
+            "index": "apps/mobile/src/index.html",
+            "main": "apps/mobile/src/main.ts",
+            "polyfills": "apps/mobile/src/polyfills.ts",
+            "tsConfig": "apps/mobile/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/mobile/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "apps/mobile/src/styles.scss",
+              {
+                "input": "apps/mobile/src/theme/variables.scss"
+              }
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/mobile/src/environments/environment.ts",
+                  "with": "apps/mobile/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mobile:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mobile:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mobile:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/mobile/tsconfig.app.json",
+              "apps/mobile/tsconfig.spec.json",
+              "apps/mobile/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/mobile/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/mobile/src/test.ts",
+            "tsConfig": "apps/mobile/tsconfig.spec.json",
+            "karmaConfig": "apps/mobile/karma.conf.js",
+            "polyfills": "apps/mobile/src/polyfills.ts",
+            "styles": [],
+            "scripts": [],
+            "assets": []
+          }
+        },
+        "cap": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "--help"
+          }
+        },
+        "add": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "add",
+            "packageInstall": true
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "add ios"
+            },
+            "android": {
+              "cmd": "add android"
+            }
+          }
+        },
+        "copy": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "copy",
+            "packageInstall": false
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "copy ios"
+            },
+            "android": {
+              "cmd": "copy android"
+            }
+          }
+        },
+        "open": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "open",
+            "packageInstall": false
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "open ios"
+            },
+            "android": {
+              "cmd": "open android"
+            }
+          }
+        },
+        "sync": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "sync",
+            "packageInstall": true
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "sync ios"
+            },
+            "android": {
+              "cmd": "sync android"
+            }
+          }
+        },
+        "update": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "update",
+            "packageInstall": true
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "update ios"
+            },
+            "android": {
+              "cmd": "update android"
+            }
+          }
+        }
+      }
+    },
+    "mobile-about-feature": {
+      "projectType": "library",
+      "root": "libs/mobile/about/feature",
+      "sourceRoot": "libs/mobile/about/feature/src",
+      "prefix": "about",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/about/feature/src/**/*.ts", "libs/mobile/about/feature/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/about/feature"],
+          "options": {
+            "jestConfig": "libs/mobile/about/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-account-feature": {
+      "projectType": "library",
+      "root": "libs/mobile/account/feature",
+      "sourceRoot": "libs/mobile/account/feature/src",
+      "prefix": "account",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/account/feature/src/**/*.ts", "libs/mobile/account/feature/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/account/feature"],
+          "options": {
+            "jestConfig": "libs/mobile/account/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-account-ui": {
+      "projectType": "library",
+      "root": "libs/mobile/account/ui",
+      "sourceRoot": "libs/mobile/account/ui/src",
+      "prefix": "account",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/account/ui/src/**/*.ts", "libs/mobile/account/ui/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/account/ui"],
+          "options": {
+            "jestConfig": "libs/mobile/account/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-auth-data-access": {
+      "projectType": "library",
+      "root": "libs/mobile/auth/data-access",
+      "sourceRoot": "libs/mobile/auth/data-access/src",
+      "prefix": "auth",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mobile/auth/data-access/src/**/*.ts",
+              "libs/mobile/auth/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/auth/data-access"],
+          "options": {
+            "jestConfig": "libs/mobile/auth/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-auth-feature": {
+      "projectType": "library",
+      "root": "libs/mobile/auth/feature",
+      "sourceRoot": "libs/mobile/auth/feature/src",
+      "prefix": "auth",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/auth/feature/src/**/*.ts", "libs/mobile/auth/feature/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/auth/feature"],
+          "options": {
+            "jestConfig": "libs/mobile/auth/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-auth-ui": {
+      "projectType": "library",
+      "root": "libs/mobile/auth/ui",
+      "sourceRoot": "libs/mobile/auth/ui/src",
+      "prefix": "auth",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/auth/ui/src/**/*.ts", "libs/mobile/auth/ui/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/auth/ui"],
+          "options": {
+            "jestConfig": "libs/mobile/auth/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-core-data-access": {
+      "projectType": "library",
+      "root": "libs/mobile/core/data-access",
+      "sourceRoot": "libs/mobile/core/data-access/src",
+      "prefix": "core",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mobile/core/data-access/src/**/*.ts",
+              "libs/mobile/core/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/core/data-access"],
+          "options": {
+            "jestConfig": "libs/mobile/core/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-core-feature": {
+      "projectType": "library",
+      "root": "libs/mobile/core/feature",
+      "sourceRoot": "libs/mobile/core/feature/src",
+      "prefix": "core",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/core/feature/src/**/*.ts", "libs/mobile/core/feature/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/core/feature"],
+          "options": {
+            "jestConfig": "libs/mobile/core/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-dashboard-feature": {
+      "projectType": "library",
+      "root": "libs/mobile/dashboard/feature",
+      "sourceRoot": "libs/mobile/dashboard/feature/src",
+      "prefix": "dashboard",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mobile/dashboard/feature/src/**/*.ts",
+              "libs/mobile/dashboard/feature/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/dashboard/feature"],
+          "options": {
+            "jestConfig": "libs/mobile/dashboard/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-e2e": {
+      "root": "apps/mobile-e2e",
+      "sourceRoot": "apps/mobile-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/mobile-e2e/cypress.json",
+            "tsConfig": "apps/mobile-e2e/tsconfig.e2e.json",
+            "devServerTarget": "mobile:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mobile:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/mobile-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/mobile-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "mobile-layout-feature": {
+      "projectType": "library",
+      "root": "libs/mobile/layout/feature",
+      "sourceRoot": "libs/mobile/layout/feature/src",
+      "prefix": "layout",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/layout/feature/src/**/*.ts", "libs/mobile/layout/feature/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/layout/feature"],
+          "options": {
+            "jestConfig": "libs/mobile/layout/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-shell-feature": {
+      "projectType": "library",
+      "root": "libs/mobile/shell/feature",
+      "sourceRoot": "libs/mobile/shell/feature/src",
+      "prefix": "shell",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/shell/feature/src/**/*.ts", "libs/mobile/shell/feature/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/shell/feature"],
+          "options": {
+            "jestConfig": "libs/mobile/shell/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-ui-button": {
+      "projectType": "library",
+      "root": "libs/mobile/ui/button",
+      "sourceRoot": "libs/mobile/ui/button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/ui/button/src/**/*.ts", "libs/mobile/ui/button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/ui/button"],
+          "options": {
+            "jestConfig": "libs/mobile/ui/button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-ui-form": {
+      "projectType": "library",
+      "root": "libs/mobile/ui/form",
+      "sourceRoot": "libs/mobile/ui/form/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/ui/form/src/**/*.ts", "libs/mobile/ui/form/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/ui/form"],
+          "options": {
+            "jestConfig": "libs/mobile/ui/form/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mobile-ui-page": {
+      "projectType": "library",
+      "root": "libs/mobile/ui/page",
+      "sourceRoot": "libs/mobile/ui/page/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mobile/ui/page/src/**/*.ts", "libs/mobile/ui/page/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mobile/ui/page"],
+          "options": {
+            "jestConfig": "libs/mobile/ui/page/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "shared-util-sdk": {
       "projectType": "library",
       "root": "libs/shared/util/sdk",

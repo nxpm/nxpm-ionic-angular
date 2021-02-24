@@ -1,22 +1,36 @@
 import { Component } from '@angular/core'
+import { MobileCoreDataAccessService } from '@nxpm-mobile/mobile/core/data-access'
+import { map } from 'rxjs/operators'
 
 @Component({
   template: `
-    <ion-header [translucent]="true">
-      <ion-toolbar>
-        <ion-title> About </ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <ng-container *ngIf="me$ | async as me">
+      <ui-page pageTitle="About">
+        <ion-card>
+          <ion-card-header>
+            <div class="ion-text-start ion-justify-content-start ion-align-items-center" [style.display]="'flex'">
+              <ion-avatar *ngIf="me?.avatarUrl" class="ion-margin-end">
+                <img [attr.src]="me?.avatarUrl" alt="User Avatar" />
+              </ion-avatar>
+              <div>
+                <ion-card-title>{{ me?.name }}</ion-card-title>
+                <ion-card-subtitle>{{ me?.email }}</ion-card-subtitle>
+              </div>
+            </div>
+          </ion-card-header>
 
-    <ion-content [fullscreen]="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">About</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <div id="container">About PAge</div>
-    </ion-content>
+          <ion-card-content>
+            <ng-container *ngIf="uptime$ | async as uptime">
+              {{ uptime }}
+            </ng-container>
+          </ion-card-content>
+        </ion-card>
+      </ui-page>
+    </ng-container>
   `,
 })
-export class MobileAboutFeatureComponent {}
+export class MobileAboutFeatureComponent {
+  me$ = this.data.me().pipe(map((res) => res.data?.me))
+  uptime$ = this.data.uptime().pipe(map((res) => res.data?.uptime))
+  constructor(private readonly data: MobileCoreDataAccessService) {}
+}

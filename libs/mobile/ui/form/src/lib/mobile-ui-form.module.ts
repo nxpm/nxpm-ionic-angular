@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { ReactiveFormsModule } from '@angular/forms'
+import { FormlyModule } from '@ngx-formly/core'
+import { FormlyIonicModule } from '@ngx-formly/ionic'
+
+import { MobileUiFormComponent } from './mobile-ui-form.component'
+
+// Types
+
+// Validators
+
+// Wrappers
 
 @NgModule({
-  imports: [CommonModule],
+  declarations: [MobileUiFormComponent],
+  exports: [MobileUiFormComponent],
+  imports: [ReactiveFormsModule, FormlyModule.forRoot(), FormlyIonicModule],
 })
 export class MobileUiFormModule {}

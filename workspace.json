@@ -314,6 +314,7 @@
                 "input": "apps/mobile/src/theme/variables.scss"
               }
             ],
+            "allowedCommonJsDependencies": ["graphql-tag", "subscriptions-transport-ws", "zen-observable"],
             "scripts": []
           },
           "configurations": {
@@ -349,7 +350,9 @@
         "serve": {
           "executor": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mobile:build"
+            "browserTarget": "mobile:build",
+            "port": 4300,
+            "proxyConfig": "apps/web/proxy.conf.js"
           },
           "configurations": {
             "production": {

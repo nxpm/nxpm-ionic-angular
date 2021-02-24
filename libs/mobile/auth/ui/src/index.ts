@@ -1,1 +1,1 @@
-export * from './lib/mobile-auth-ui.module'
+export * from './lib/auth-page/auth-page.module'

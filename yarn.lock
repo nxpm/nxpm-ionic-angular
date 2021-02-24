@@ -2509,10 +2509,10 @@
   resolved "https://registry.yarnpkg.com/@ngneat/tailwind/-/tailwind-5.2.4.tgz#77183ed2ce421382d983cac7e24129b770cbf1c7"
   integrity sha512-bbVm/KCh3VI09qqe8UK7fW4lXBr3X6FsLOo90NzNMDpygXja4GwpaW7bCs7rAu4WKkItuFrpbAxSG6JYqzIJqA==
 
-"@ngrx/component-store@11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-11.0.0.tgz#4ef2ea4fed0920cb8da19e19467fd4b421decfb8"
-  integrity sha512-dq8c7eleroBvN8JvLNr+PpLeC23QKl/V7Rc1rpkfESXUi7mq2NmCcU3gXvfqhDM8+Kuxwj9D0Ljd59Hfz3Z8LQ==
+"@ngrx/component-store@10":
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-10.1.2.tgz#49c6e3d721a483fc97ae12e6a3e45b83245f2f9f"
+  integrity sha512-UuI55Ut1mAzGMX/SLHByOeJfC3hD5Z8+qv7aQTV/iHyMdpSdBpj3O92kPbDCSl+jXWGpjFNi45iY7bfOLZNFaQ==
   dependencies:
     tslib "^2.0.0"
 
@@ -2531,6 +2531,13 @@
   integrity sha512-WDKCK7wLrvp49FXcql8iZHC2wSgPbp3bk5w5yc1LgZpLmk+ilPoquHPT+/kYM/ctxkQFwcrO78KiKMMEfz5Ytg==
   dependencies:
     tslib "^1.7.1"
+
+"@ngx-formly/ionic@5.10.13":
+  version "5.10.13"
+  resolved "https://registry.yarnpkg.com/@ngx-formly/ionic/-/ionic-5.10.13.tgz#0662eb6bdc4ae3746ece4e4908902dc62f5c9301"
+  integrity sha512-vWZr+bXb8cuG5Ld/DZ33ZyVinoY/Ks2OGA0I/rlxYbkoi6kPvWWlfGqv0EolAtNPQFZPalBekIuG76WUtVMjaA==
+  dependencies:
+    tslib "^1.9.0"
 
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"

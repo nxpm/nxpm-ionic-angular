@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { IonicModule } from '@ionic/angular'
+import { MobileUiPageModule } from '@nxpm-mobile/mobile/ui/page'
 import { MobileAccountFeatureComponent } from './mobile-account-feature.component'
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MobileAccountFeatureComponent } from './mobile-account-feature.componen
         component: MobileAccountFeatureComponent,
       },
     ]),
+    MobileUiPageModule,
   ],
   declarations: [MobileAccountFeatureComponent],
 })

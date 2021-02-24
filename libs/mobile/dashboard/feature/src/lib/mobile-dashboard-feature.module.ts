@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { IonicModule } from '@ionic/angular'
+import { MobileUiPageModule } from '@nxpm-mobile/mobile/ui/page'
 import { MobileDashboardFeatureComponent } from './mobile-dashboard-feature.component'
 
 @NgModule({
@@ -10,6 +11,7 @@ import { MobileDashboardFeatureComponent } from './mobile-dashboard-feature.comp
     CommonModule,
     FormsModule,
     IonicModule,
+    MobileUiPageModule,
     RouterModule.forChild([
       {
         path: '',
